@@ -10,7 +10,7 @@ export class TelefonePipe implements PipeTransform {
       return valor.substring(0, 4)
         + '-' + valor.substring(4, 8);
     } else if (valor.length == 10) {
-      return '(' + valor.substring(0,2) + ')'
+      return '(0' + valor.substring(0,2) + ')'
         + ' ' + valor.substring(2,6)
         + '-' + valor.substring(6,10)
     } else if (valor.length == 11) {

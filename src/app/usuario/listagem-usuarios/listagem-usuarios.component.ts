@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Usuario} from '../../shared/modelo/usuario';
 import {USUARIOS} from '../../shared/modelo/USUARIOS';
 import {UsuarioService} from '../../shared/services/usuario.service';
+import { IMensagem } from 'src/app/shared/modelo/IMensagem';
 
 @Component({
   selector: 'app-listagem-usuarios',
@@ -12,7 +13,7 @@ export class ListagemUsuariosComponent implements OnInit{
 
   usuarios: Usuario[] = [];
 
-  constructor(private usuarioService: UsuarioService) {
+  constructor(private usuarioService: UsuarioService, private mensagemService: IMensagem) {
   }
 
   ngOnInit(): void {
@@ -29,6 +30,7 @@ export class ListagemUsuariosComponent implements OnInit{
           const indx = this.usuarios.findIndex(usuario =>
             usuario.id === usuarioARemover.id);
           this.usuarios.splice(indx, 1);
+          this.mensagemService.alert('Usuário deletado com sucesso')
         }
       );
     }
