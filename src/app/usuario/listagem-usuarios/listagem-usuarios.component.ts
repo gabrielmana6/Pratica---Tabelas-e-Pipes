@@ -29,8 +29,8 @@ export class ListagemUsuariosComponent implements OnInit{
         usuarioRemovido => {
           const indx = this.usuarios.findIndex(usuario =>
             usuario.id === usuarioARemover.id);
+          this.mensagemService.alert(`Usuário: ${this.usuarios[indx].nome} \ndeletado com sucesso`)
           this.usuarios.splice(indx, 1);
-          this.mensagemService.alert('Usuário deletado com sucesso')
         }
       );
     }
